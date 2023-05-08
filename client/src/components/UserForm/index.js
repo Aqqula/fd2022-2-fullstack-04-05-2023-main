@@ -10,6 +10,7 @@ const UserForm = () => {
     //post
     dispatch(createUser(values));
     //formikBag
+    formikBag.resetForm();
   };
   return (
     <>

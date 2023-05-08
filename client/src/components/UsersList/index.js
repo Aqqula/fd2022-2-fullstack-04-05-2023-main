@@ -1,12 +1,13 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { getAllUsers } from '../../store/usersSlice';
 
 const UsersList = (props) => {
-  const { isFetching, error, users } = useSelector((state) => state.users);
   const dispatch = useDispatch();
+  const { isFetching, error, users } = useSelector((state) => state.users);
   useEffect(() => {
-    dispatch(getAllUsers({ limit:10,offset:0 }));
+    dispatch(getAllUsers({ limit: 10, offset: 0 }));
   }, [dispatch]);
   return (
     <>
@@ -17,7 +18,8 @@ const UsersList = (props) => {
           <h2>users list</h2>
           <ol>
             {users.map((user) => (
-              <li key={user.id}>{user.email}</li>
+              <li key={user.id}>{user.email} 
+              <Link to={`/users/${user.id}`}>Show Profile</Link></li>
             ))}
           </ol>
         </section>

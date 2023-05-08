@@ -1,8 +1,10 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route, NavLink } from 'react-router-dom';
+import UserProfile from './components/UserProfile';
 import HomePage from './pages/HomePage';
 import UserPage from './pages/UserPage';
 import LogUpPage from './pages/LogUpPage';
+import GroupsPage from './pages/GroupsPage';
 
 const App = () => {
   return (
@@ -16,14 +18,19 @@ const App = () => {
             <NavLink to="/users">USERS</NavLink>
           </li>
           <li>
-            <NavLink to="/LOGUP">LOG UP</NavLink>
+            <NavLink to="/group-create">GROUP CREATE</NavLink>
+          </li>
+          <li>
+            <NavLink to="/log-up">LOG UP</NavLink>
           </li>
         </ol>
       </nav>
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/users" element={<UserPage />} />
-        <Route path="/LOGUP" element={<LogUpPage />} />
+        <Route path="/group-create" element={<GroupsPage />} />
+        <Route path="/log-up" element={<LogUpPage />} />
+        <Route path="/users/:idUser" element={<UserProfile />} />
       </Routes>
     </BrowserRouter>
   );
